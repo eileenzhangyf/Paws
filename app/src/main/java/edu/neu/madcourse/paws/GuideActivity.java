@@ -1,9 +1,11 @@
 package edu.neu.madcourse.paws;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -13,6 +15,7 @@ import edu.neu.madcourse.framework.manager.MediaPlayerManager;
 public class GuideActivity extends AppCompatActivity {
     MediaPlayerManager mediaPlayerManager;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

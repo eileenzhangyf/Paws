@@ -2,10 +2,12 @@ package edu.neu.madcourse.framework.manager;
 
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -67,6 +69,7 @@ public class MediaPlayerManager {
      * @param path
      */
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void startPlay(AssetFileDescriptor path){
 
         try {
