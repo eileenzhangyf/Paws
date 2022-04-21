@@ -15,30 +15,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paws">
         <activity
+            android:name=".PostUnitActivity"
+            android:exported="false" />
+        <activity
             android:name=".NavActivity"
             android:exported="false"
-            android:label="@string/title_activity_nav"
-            />
+            android:label="@string/title_activity_nav" />
         <activity
             android:name=".PetSettingActivity"
             android:exported="false"
-            android:theme="@style/AppThemeFull"/>
+            android:theme="@style/AppThemeFull" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false"
-            android:theme="@style/AppThemeFull"/>
+            android:theme="@style/AppThemeFull" />
         <activity
             android:name=".settingActivity"
             android:exported="false"
-            android:theme="@style/AppThemeFull"/>
+            android:theme="@style/AppThemeFull" />
         <activity
             android:name=".LoginActivity"
             android:exported="false"
-            android:theme="@style/AppThemeFull"/>
+            android:theme="@style/AppThemeFull" />
         <activity
             android:name=".GuideActivity"
             android:exported="false"
-            android:theme="@style/AppThemeFull"/>
+            android:theme="@style/AppThemeFull" />
         <activity
             android:name=".InitActivity"
             android:exported="false"
