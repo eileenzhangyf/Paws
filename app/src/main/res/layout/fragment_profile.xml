@@ -38,8 +38,8 @@
         android:id="@+id/Gender_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="44dp"
         android:text="Gender"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/Breed_text"
@@ -82,9 +82,12 @@
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imageView12"
         app:layout_constraintEnd_toStartOf="@+id/age_num"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/breed_type"
-        app:layout_constraintTop_toBottomOf="@+id/Gender_text" />
+        app:layout_constraintTop_toBottomOf="@+id/Gender_text"
+        app:layout_constraintVertical_bias="0.07" />
 
     <TextView
         android:id="@+id/age_num"
@@ -139,9 +142,12 @@
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_photo" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.217" />
 
     <Button
         android:id="@+id/chat_button"
@@ -152,4 +158,13 @@
         android:text="Chat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="San Jose, California"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="211dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
