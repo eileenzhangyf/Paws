@@ -2,7 +2,7 @@ ext{
     android =[
         compileSdk : 32,
         applicationId :"edu.neu.madcourse.paws",
-        minSdk: 26,
+        minSdk: 21,
         targetSdk:32,
         versionCode:1,
         versionName:"1.0"
