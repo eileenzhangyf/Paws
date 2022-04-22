@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ComposeActivity">
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="244dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="64dp"
+        android:text="Share something..."
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="83dp"
+        android:layout_height="76dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="96dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView15"
+        app:srcCompat="@drawable/paws_logo2" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="207dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="196dp"
+        android:layout_height="158dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="58dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

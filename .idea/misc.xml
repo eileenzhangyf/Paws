@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_insert_photo_24.xml" value="0.22552083333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_photo_24.xml" value="0.22552083333333334" />
+        <entry key="app/src/main/res/layout/activity_compose.xml" value="0.18614130434782608" />
         <entry key="app/src/main/res/layout/activity_guide.xml" value="0.18958333333333333" />
         <entry key="app/src/main/res/layout/activity_init.xml" value="0.15760869565217392" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.335" />
