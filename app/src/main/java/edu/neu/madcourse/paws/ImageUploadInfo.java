@@ -27,5 +27,11 @@ public class ImageUploadInfo {
             return imageURL;
         }
 
+        public String getPersonName(){
+            return personName;
+        }
+
+
+
 }
 
