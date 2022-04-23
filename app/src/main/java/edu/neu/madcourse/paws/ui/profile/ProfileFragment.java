@@ -19,9 +19,11 @@ public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
+    private TextView breedText, genderText, ageText, locationText;
+    private TextView userNameText;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
 

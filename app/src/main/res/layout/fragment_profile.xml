@@ -7,69 +7,86 @@
     tools:context=".ui.profile.ProfileFragment">
 
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_photo"
-        android:layout_width="184dp"
-        android:layout_height="141dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginStart="112dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="115dp"
+        android:layout_marginBottom="5dp"
         android:contentDescription="@string/profile_photo"
+        app:layout_constraintBottom_toTopOf="@+id/user_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/profile1" />
-
-    <TextView
-        android:id="@+id/Breed_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="63dp"
-        android:text="Breed"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/Gender_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Gender_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="44dp"
-        android:text="Gender"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/Breed_text"
-        app:layout_constraintTop_toBottomOf="@+id/user_name" />
-
-    <TextView
-        android:id="@+id/Age_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="248dp"
-        android:layout_marginEnd="69dp"
-        android:text="Age"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/Gender_text"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/breed_type"
         android:layout_width="151dp"
         android:layout_height="35dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:text="Amierican Shorthair"
         android:textAlignment="center"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Breed_text" />
+
+    <TextView
+        android:id="@+id/age_num"
+        android:layout_width="103dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
+        android:text="11 Months"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Age_text" />
+
+    <TextView
+        android:id="@+id/Gender_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="52dp"
+        android:text="Gender"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/Breed_text"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/Age_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="69dp"
+        android:text="Age"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.142"
+        app:layout_constraintStart_toEndOf="@+id/Gender_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Breed_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="284dp"
+        android:layout_marginEnd="63dp"
+        android:text="Breed"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/Gender_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/gender_type"
@@ -87,49 +104,39 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/breed_type"
         app:layout_constraintTop_toBottomOf="@+id/Gender_text"
-        app:layout_constraintVertical_bias="0.07" />
-
-    <TextView
-        android:id="@+id/age_num"
-        android:layout_width="103dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="40dp"
-        android:text="11 Months"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Age_text" />
+        app:layout_constraintVertical_bias="0.076" />
 
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="156dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breed_type"
         app:srcCompat="@drawable/post1" />
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:layout_marginTop="58dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView13"
-        app:layout_constraintTop_toBottomOf="@+id/breed_type"
-        app:srcCompat="@drawable/post3" />
-
-    <ImageView
         android:id="@+id/imageView13"
         android:layout_width="130dp"
         android:layout_height="130dp"
-        android:layout_marginTop="58dp"
-        android:layout_marginEnd="12dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/age_num"
         app:srcCompat="@drawable/post2" />
+
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView13"
+        app:layout_constraintStart_toEndOf="@+id/imageView10"
+        app:layout_constraintTop_toBottomOf="@+id/breed_type"
+        app:srcCompat="@drawable/post3" />
 
     <TextView
         android:id="@+id/user_name"
@@ -144,27 +151,19 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217" />
-
-    <Button
-        android:id="@+id/chat_button"
-        android:layout_width="234dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="44dp"
-        android:text="Chat"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+        app:layout_constraintVertical_bias="0.254" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
         android:text="San Jose, California"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="211dp" />
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>

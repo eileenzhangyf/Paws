@@ -39,7 +39,7 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
 
         String post_url = postUnit.getPost_image_uri();
         Log.e("url is",post_url);
-
+        Picasso.get().load(post_url).into(default_post_image);
 
 
         /*
