@@ -19,12 +19,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.StorageReference;
 
 import edu.neu.madcourse.paws.ComposeActivity;
 import edu.neu.madcourse.paws.databinding.FragmentHomeBinding;
 
-public class HomeFragment<DatabaseReference> extends Fragment {
+public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
