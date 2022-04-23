@@ -48,6 +48,9 @@ public class ComposeActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     private FirebaseUser firebaseUser;
     private String curr_user_email;
+    private long mark;
+    private String ImageUploadID;
+    private String TempImageName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,31 +129,37 @@ public class ComposeActivity extends AppCompatActivity {
             // Showing progressDialog.
             progressDialog.show();
 
-
-            StorageReference storageReference2nd = storageReference.child(Storage_path + System.currentTimeMillis() + "." + GetFileExtension(Filepath_uri));
+            mark = System.currentTimeMillis();
+            StorageReference storageReference2nd = storageReference.child(Storage_path +mark+"."+ GetFileExtension(Filepath_uri));
 
             // Adding addOnSuccessListener to second StorageReference.
             storageReference2nd.putFile(Filepath_uri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            storageReference2nd.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    TempImageName = post.getText().toString().trim();
+
+                                    progressDialog.dismiss();
+
+                                    Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
+
+                                    // ImageUploadInfo imageUploadInfo= new ImageUploadInfo(curr_user_email,TempImageName, taskSnapshot.getStorage().getDownloadUrl().toString());
+
+                                    ImageUploadID = databaseReference.push().getKey();
+                                    ImageUploadInfo imageUploadInfo= new ImageUploadInfo(curr_user_email,TempImageName, uri.toString());
+                                    Log.e("URL uploaded is",uri.toString());
+                                    databaseReference.child(ImageUploadID).setValue(imageUploadInfo);
+
+                                }
+                            });
 
 
-                            String TempImageName = post.getText().toString().trim();
 
-                            progressDialog.dismiss();
-
-                            Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
-
-                            ImageUploadInfo imageUploadInfo= new ImageUploadInfo(curr_user_email,TempImageName, taskSnapshot.getUploadSessionUri().toString());
-
-                            String ImageUploadId = databaseReference.push().getKey();
-
-                            // Adding image upload id s child element into databaseReference.
-                            databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
                         }
                     })
-                    // If something goes wrong .
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
@@ -172,11 +181,16 @@ public class ComposeActivity extends AppCompatActivity {
 
                         }
                     });
+
         } else {
 
             Toast.makeText(getApplicationContext(), "Please Select Image or Add Image Name", Toast.LENGTH_LONG).show();
 
         }
 
+
+
     }
+
+
 }

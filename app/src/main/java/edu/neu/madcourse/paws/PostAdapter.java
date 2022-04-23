@@ -3,6 +3,8 @@ package edu.neu.madcourse.paws;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,7 +37,12 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
         PostUnitActivity postUnit = getItem(position);
         ImageView default_post_image = (ImageView) listView.findViewById(R.id.default_post);
 
-        URL post_url = postUnit.getPost_image_uri();
+        String post_url = postUnit.getPost_image_uri();
+        Log.e("url is",post_url);
+
+
+
+        /*
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -45,7 +54,8 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
                 }
             }
         });
-        thread.start();
+        thread.start();*/
+
 
         TextView userName_tv = (TextView) listView.findViewById(R.id.username_tv);
         String userName = postUnit.getUser_name();

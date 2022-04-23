@@ -27,6 +27,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -85,12 +86,9 @@ public class HomeFragment extends Fragment {
                 Log.e("Person name",user);
                 String post_content = imageUploadInfo.getImageName();
                 String post_url = imageUploadInfo.getImageURL();
-                try {
-                    addPost(user,new URL(post_url),post_content,new URL(post_url));
-                    Log.e("post added","success");
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+
+                addPost(user,post_url,post_content,post_url);
+                Log.e("post added","success");
             }
 
             @Override
@@ -100,12 +98,8 @@ public class HomeFragment extends Fragment {
                 Log.e("Person name",user);
                 String post_content = imageUploadInfo.getImageName();
                 String post_url = imageUploadInfo.getImageURL();
-                try {
-                    addPost(user,new URL(post_url),post_content,new URL(post_url));
-                    Log.e("post added","success");
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
+                addPost(user,post_url,post_content,post_url);
+                Log.e("post added","success");
             }
 
             @Override
@@ -147,7 +141,7 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    public void addPost(String user_name, URL user_image, String post, URL post_img){
+    public void addPost(String user_name, String user_image, String post, String post_img){
         PostUnitActivity postUnit = new PostUnitActivity(user_name,post_img,post,user_image);
         post_list.add(postUnit);
         postAdapter.notifyDataSetChanged();
