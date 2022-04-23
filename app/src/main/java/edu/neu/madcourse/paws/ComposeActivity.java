@@ -19,8 +19,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -41,6 +46,8 @@ public class ComposeActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     private int img_request_code = 7;
     ProgressDialog progressDialog;
+    private FirebaseUser firebaseUser;
+    private String curr_user_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +59,19 @@ public class ComposeActivity extends AppCompatActivity {
         chooseImage = (ImageView) findViewById(R.id.select_img);
         post = (EditText) findViewById(R.id.edit_post);
         progressDialog = new ProgressDialog(ComposeActivity.this);
-
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseUser.getIdToken(true)
+                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                        if(task.isSuccessful()){
+                            curr_user_email = firebaseUser.getEmail();
+                            Log.e("curr_user",curr_user_email);
+                        }else{
+                            Log.e("get user","failed");
+                        }
+                    }
+                });
 
         chooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,23 +135,19 @@ public class ComposeActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            // Getting image name from EditText and store into string variable.
+
                             String TempImageName = post.getText().toString().trim();
 
-                            // Hiding the progressDialog after done uploading.
                             progressDialog.dismiss();
 
-                            // Showing toast message after done uploading.
                             Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
 
-                            @SuppressWarnings("VisibleForTests")
-                            ImageUploadInfo imageUploadInfo= new ImageUploadInfo(TempImageName, taskSnapshot.getUploadSessionUri().toString());
+                            ImageUploadInfo imageUploadInfo= new ImageUploadInfo(curr_user_email,TempImageName, taskSnapshot.getUploadSessionUri().toString());
 
-                            // Getting image upload ID.
                             String ImageUploadId = databaseReference.push().getKey();
 
                             // Adding image upload id s child element into databaseReference.
-                            databaseReference.child("pic").setValue(imageUploadInfo);
+                            databaseReference.child(ImageUploadId).setValue(imageUploadInfo);
                         }
                     })
                     // If something goes wrong .
@@ -148,13 +163,12 @@ public class ComposeActivity extends AppCompatActivity {
                         }
                     })
 
-                    // On progress change upload time.
+
                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
 
-                            // Setting progressDialog Title.
-                            progressDialog.setTitle("Image is Uploading...");
+                            progressDialog.setTitle("Post is Uploading...");
 
                         }
                     });

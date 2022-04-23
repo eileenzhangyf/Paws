@@ -3,6 +3,8 @@ package edu.neu.madcourse.paws;
 
 public class ImageUploadInfo {
 
+        public String personName;
+
         public String imageName;
 
         public String imageURL;
@@ -11,8 +13,8 @@ public class ImageUploadInfo {
 
         }
 
-        public ImageUploadInfo(String name, String url) {
-
+        public ImageUploadInfo(String personName,String name, String url) {
+            this.personName = personName;
             this.imageName = name;
             this.imageURL= url;
         }
