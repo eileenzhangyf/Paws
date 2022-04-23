@@ -35,7 +35,7 @@
         app:srcCompat="@drawable/paws_logo2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/edit_post"
         android:layout_width="207dp"
         android:layout_height="94dp"
         android:layout_marginTop="80dp"
@@ -46,13 +46,23 @@
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/select_img"
         android:layout_width="196dp"
         android:layout_height="158dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="58dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/edit_post"
         app:srcCompat="@drawable/ic_baseline_add_photo_alternate_24" />
+
+    <Button
+        android:id="@+id/post_button"
+        android:layout_width="90dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="43dp"
+        android:text="Post"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/select_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

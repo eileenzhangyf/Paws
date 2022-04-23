@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paws">
         <activity
+            android:name=".PetSettingActivity2"
+            android:exported="false" />
+        <activity
             android:name=".ComposeActivity"
             android:exported="false" />
         <activity

@@ -17,7 +17,7 @@ public class MainActivity extends BaseUIActivity {
         setContentView(R.layout.activity_main);
 
         openInitPage();
-        MediaPlayerManager mediaPlayerManager = new MediaPlayerManager();
+       // MediaPlayerManager mediaPlayerManager = new MediaPlayerManager();
         AssetFileDescriptor fileDescriptor = getResources().openRawResourceFd(R.raw.guitar_1);
         //mediaPlayerManager.startPlay(fileDescriptor);
         /*

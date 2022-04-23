@@ -1,10 +1,15 @@
 package edu.neu.madcourse.paws.ui.post;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,14 +19,26 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.storage.StorageReference;
 
 import edu.neu.madcourse.paws.ComposeActivity;
 import edu.neu.madcourse.paws.databinding.FragmentHomeBinding;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment<DatabaseReference> extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    private String Storage_path="All_images/";
+    private String Database_path="All_images_db";
+    private EditText post;
+    private Button post_button;
+    private ImageView ChooseImage;
+    private Uri Filepath_uri;
+    private StorageReference storageReference;
+    private DatabaseReference databaseReference;
+    private int img_request_code = 7;
+    private ProgressDialog progressDialog;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

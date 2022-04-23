@@ -17,7 +17,7 @@ public class InitActivity extends AppCompatActivity {
      * 1. set full screen
      * 2. delay entering main page
      */
-    MediaPlayerManager mediaPlayerManager;
+   // MediaPlayerManager mediaPlayerManager;
     private static final int SKIP_MAIN = 100;
     private Handler myHandler = new Handler(new Handler.Callback() {
         @Override
