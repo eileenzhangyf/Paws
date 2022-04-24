@@ -5,7 +5,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
 import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -38,9 +40,17 @@ import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+
+import edu.neu.madcourse.paws.AddressInfo;
+import edu.neu.madcourse.paws.CountryActivity;
 import edu.neu.madcourse.paws.LocationInfo;
 import edu.neu.madcourse.paws.MapsActivity;
 import edu.neu.madcourse.paws.R;
+import edu.neu.madcourse.paws.SameCityActivity;
+import edu.neu.madcourse.paws.StateActivity;
 import edu.neu.madcourse.paws.databinding.FragmentNotificationsBinding;
 
 public class NotificationsFragment extends Fragment {
@@ -57,6 +67,7 @@ public class NotificationsFragment extends Fragment {
     DatabaseReference loc_db;
     FirebaseUser firebaseUser;
     String curr_user_email;
+    DatabaseReference city_db;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -82,6 +93,7 @@ public class NotificationsFragment extends Fragment {
                 });*/
 
         loc_db = FirebaseDatabase.getInstance().getReference("user_location");
+        city_db = FirebaseDatabase.getInstance().getReference("city_info");
 
         ActivityResultLauncher<String> location_permission_res = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             Log.e("Permission result:", isGranted.toString());
@@ -110,18 +122,32 @@ public class NotificationsFragment extends Fragment {
                                             Log.e("latitude is:", String.valueOf(latitude));
 
                                             uploadToFirebase();
+                                            Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
+                                            try {
+                                                List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
+                                                uploadToAddressDb(addresses, curr_user_email);
+                                            } catch (IOException e) {
+                                                e.printStackTrace();
+                                            }
                                         }else{
                                             Log.e("get user","failed");
                                         }
                                     }
                                 });
                         /*
+
                         longitude = location.getLongitude();
                         latitude = location.getLatitude();
-                        Log.e("longitude is:",String.valueOf(longitude));
-                        Log.e("latitude is:", String.valueOf(latitude));
+                        Log.e("longitude_2 is:",String.valueOf(longitude));
+                        Log.e("latitude_2 is:", String.valueOf(latitude));
+                        Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
+                        try {
+                            List<Address> addresses = geocoder.getFromLocation(longitude,latitude,1);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }*/
 
-                        */
+
                     }
                 };
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,10,locationListener);
@@ -166,6 +192,31 @@ public class NotificationsFragment extends Fragment {
         LocationInfo locationInfo = new LocationInfo(curr_user_email,String.valueOf(longitude),String.valueOf(latitude));
         String uploadId = loc_db.push().getKey();
         loc_db.child(uploadId).setValue(locationInfo);
+    }
+
+    public void openSameCity(){
+        Intent intent = new Intent(getActivity(), SameCityActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSameState(){
+        Intent intent = new Intent(getActivity(), StateActivity.class);
+        startActivity(intent);
+    }
+
+    public void openCountry(){
+        Intent intent = new Intent(getActivity(), CountryActivity.class);
+        startActivity(intent);
+    }
+
+    public void uploadToAddressDb(List<Address> list, String curr_user_email){
+        String city = list.get(0).getLocality();
+        String state = list.get(0).getAdminArea();
+        String country = list.get(0).getCountryName();
+        AddressInfo addressInfo = new AddressInfo(curr_user_email,city,state,country);
+        String uploadId = city_db.push().getKey();
+        city_db.child(uploadId).setValue(addressInfo);
+
     }
 
 
