@@ -1,0 +1,20 @@
+edu/neu/madcourse/framework/utils/SystemUI.java
+ edu.neu.madcourse.framework.utils.SystemUI
+edu/neu/madcourse/framework/base/BaseUIActivity.java
+ edu.neu.madcourse.framework.base.BaseUIActivity
+edu/neu/madcourse/framework/manager/MediaPlayerManager.java
+ edu.neu.madcourse.framework.manager.MediaPlayerManager
+ edu.neu.madcourse.framework.manager.MediaPlayerManager$1
+ edu.neu.madcourse.framework.manager.MediaPlayerManager$OnMusicProgressListener
+edu/neu/madcourse/framework/Framework.java
+ edu.neu.madcourse.framework.Framework
+edu/neu/madcourse/framework/entities/Constant.java
+ edu.neu.madcourse.framework.entities.Constant
+edu/neu/madcourse/framework/utils/LogUtil.java
+ edu.neu.madcourse.framework.utils.LogUtil
+edu/neu/madcourse/framework/BuildConfig.java
+ edu.neu.madcourse.framework.BuildConfig
+edu/neu/madcourse/framework/utils/TimeUtil.java
+ edu.neu.madcourse.framework.utils.TimeUtil
+edu/neu/madcourse/framework/utils/SpUtils.java
+ edu.neu.madcourse.framework.utils.SpUtils

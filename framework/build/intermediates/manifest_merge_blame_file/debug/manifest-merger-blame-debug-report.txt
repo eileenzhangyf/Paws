@@ -1,0 +1,25 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="edu.neu.madcourse.framework" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml
+7        android:targetSdkVersion="32" />
+7-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+9-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:4:5-81
+9-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:4:22-78
+10    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+10-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:5:5-80
+10-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:5:22-77
+11    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+11-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:6:5-81
+11-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:6:22-79
+12
+13    <application android:requestLegacyExternalStorage="true" />
+13-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:7:5-63
+13-->/Users/amy/Desktop/Paws/framework/src/main/AndroidManifest.xml:7:18-61
+14
+15</manifest>
