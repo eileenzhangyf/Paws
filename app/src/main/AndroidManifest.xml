@@ -16,17 +16,22 @@
         android:theme="@style/Theme.Paws">
         <activity
             android:name=".PetSettingActivity2"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppThemeFull"
+            />
         <activity
             android:name=".ComposeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme = "@style/AppThemeFull"
+            />
         <activity
             android:name=".PostUnitActivity"
             android:exported="false" />
         <activity
             android:name=".NavActivity"
             android:exported="false"
-            android:label="@string/title_activity_nav" />
+            android:label="@string/title_activity_nav"
+            />
         <activity
             android:name=".PetSettingActivity"
             android:exported="false"

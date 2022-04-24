@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,6 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="263dp"
         android:layout_height="290dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="74dp"
         android:layout_marginTop="71dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,10 +21,12 @@
         android:id="@+id/textView"
         android:layout_width="223dp"
         android:layout_height="108dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="439dp"
         android:text="Let's connect"
         android:textSize="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

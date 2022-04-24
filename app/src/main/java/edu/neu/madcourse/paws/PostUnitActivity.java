@@ -19,6 +19,10 @@ public class PostUnitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post_unit);
     }
 
+    public PostUnitActivity(){
+
+    }
+
     public PostUnitActivity(String user_name, String post_uri, String post_content, String user_image_uri){
         this.user_image_uri = user_image_uri;
         this.user_name = user_name;
