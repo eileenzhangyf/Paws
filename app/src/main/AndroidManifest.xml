@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Paws">
         <activity
+            android:name=".LocationPermissionActivity"
+            android:exported="false" />
+        <activity
             android:name=".MapsActivity"
             android:exported="false" />
         <activity
