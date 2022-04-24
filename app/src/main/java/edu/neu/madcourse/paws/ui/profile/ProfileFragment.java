@@ -12,16 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+import edu.neu.madcourse.paws.R;
 import edu.neu.madcourse.paws.databinding.FragmentProfileBinding;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class ProfileFragment extends Fragment {
 
     private ProfileViewModel profileViewModel;
     private FragmentProfileBinding binding;
-    private TextView breedText, genderText, ageText, locationText;
-    private TextView userNameText;
+    private TextView breedText, genderText, ageText, locationText, userNameText;
+    private CircleImageView profileImage;
 
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         profileViewModel =
@@ -29,15 +34,13 @@ public class ProfileFragment extends Fragment {
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        /*
-        final TextView textView = binding.textProfile;
-        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init(view);
     }
 
     @Override
@@ -45,4 +48,20 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+    public void init(View view) {
+        userNameText = view.findViewById(R.id.user_name);
+        locationText = view.findViewById(R.id.user_location);
+        breedText = view.findViewById(R.id.breedTV);
+        genderText = view.findViewById(R.id.petGenderTV);
+        ageText = view.findViewById(R.id.petAgeTV);
+
+//        FirebaseAuth auth = FirebaseAuth.getInstance();
+//        user = auth.getCurrentUser();
+
+
+
+    }
+
+
 }

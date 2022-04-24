@@ -16,8 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import edu.neu.madcourse.paws.R;
-
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LOG_IN_TAG";
     private String email;
@@ -28,8 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        EditText email_input = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        EditText password_input = (EditText) findViewById(R.id.editTextTextPassword);
+        EditText email_input = (EditText) findViewById(R.id.editTextEmailAddress);
+        EditText password_input = (EditText) findViewById(R.id.editTextPassword);
         Button sign_up = (Button) findViewById(R.id.sign_up_button);
         myauth = FirebaseAuth.getInstance();
         sign_up.setOnClickListener(new View.OnClickListener() {
