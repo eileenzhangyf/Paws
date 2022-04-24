@@ -21,7 +21,7 @@
             app:layout_row="0" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/profile_default"
             android:layout_width="80dp"
             android:layout_height="72dp"
             app:layout_column="1"

@@ -3,6 +3,7 @@ package edu.neu.madcourse.paws;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,25 +37,12 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
         }
         PostUnitActivity postUnit = getItem(position);
         ImageView default_post_image = (ImageView) listView.findViewById(R.id.default_post);
+        ImageView default_profile_image = (ImageView) listView.findViewById(R.id.profile_default);
 
         String post_url = postUnit.getPost_image_uri();
         Log.e("url is",post_url);
         Picasso.get().load(post_url).into(default_post_image);
 
-
-        /*
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Bitmap bmp = BitmapFactory.decodeStream(post_url.openConnection().getInputStream());
-                    default_post_image.setImageBitmap(bmp);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        thread.start();*/
 
 
         TextView userName_tv = (TextView) listView.findViewById(R.id.username_tv);
