@@ -29,8 +29,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import edu.neu.madcourse.paws.LocationInfo;
 import edu.neu.madcourse.paws.MapsActivity;
 import edu.neu.madcourse.paws.R;
 import edu.neu.madcourse.paws.databinding.FragmentNotificationsBinding;
@@ -46,26 +54,9 @@ public class NotificationsFragment extends Fragment {
     public LocationManager locationManager;
     public String provider;
     public Location location;
-
-   /* private ActivityResultLauncher<String> location_permission_res = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted ->{
-        Log.e("Permission result:",isGranted.toString());
-        if(isGranted){
-            locationListener = new LocationListener() {
-                @Override
-                public void onLocationChanged(@NonNull Location location) {
-                    longitude = location.getLongitude();
-                    latitude = location.getLatitude();
-                    Log.e("longitude is:",String.valueOf(longitude));
-                    Log.e("latitude is:", String.valueOf(latitude));
-                }
-            };
-            locationManager = (LocationManager)  getActivity().getSystemService(Context.LOCATION_SERVICE);
-            provider = locationManager.getBestProvider(new Criteria(),false);
-
-        }else{
-
-        }
-    });*/
+    DatabaseReference loc_db;
+    FirebaseUser firebaseUser;
+    String curr_user_email;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -73,8 +64,25 @@ public class NotificationsFragment extends Fragment {
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
 
         binding = FragmentNotificationsBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
+
+        /*
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        firebaseUser.getIdToken(true)
+                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                        if(task.isSuccessful()){
+                            curr_user_email = firebaseUser.getEmail();
+                            Log.e("curr_user_map",curr_user_email);
+                        }else{
+                            Log.e("get user","failed");
+                        }
+                    }
+                });*/
+
+        loc_db = FirebaseDatabase.getInstance().getReference("user_location");
+
         ActivityResultLauncher<String> location_permission_res = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             Log.e("Permission result:", isGranted.toString());
             if (isGranted) {
@@ -87,10 +95,33 @@ public class NotificationsFragment extends Fragment {
                 locationListener = new LocationListener() {
                     @Override
                     public void onLocationChanged(@NonNull Location location) {
+
+                        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                        firebaseUser.getIdToken(true)
+                                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                                        if(task.isSuccessful()){
+                                            curr_user_email = firebaseUser.getEmail();
+                                            Log.e("curr_user_map",curr_user_email);
+                                            longitude = location.getLongitude();
+                                            latitude = location.getLatitude();
+                                            Log.e("longitude is:",String.valueOf(longitude));
+                                            Log.e("latitude is:", String.valueOf(latitude));
+
+                                            uploadToFirebase();
+                                        }else{
+                                            Log.e("get user","failed");
+                                        }
+                                    }
+                                });
+                        /*
                         longitude = location.getLongitude();
                         latitude = location.getLatitude();
                         Log.e("longitude is:",String.valueOf(longitude));
                         Log.e("latitude is:", String.valueOf(latitude));
+
+                        */
                     }
                 };
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,10,locationListener);
@@ -112,19 +143,7 @@ public class NotificationsFragment extends Fragment {
 
 
 
-/*
-        if(checkLocationPermission()){
-            locationListener = new LocationListener() {
-                @Override
-                public void onLocationChanged(@NonNull Location location) {
-                    longitude = location.getLongitude();
-                    latitude = location.getLatitude();
-                    Log.e("longitude is:",String.valueOf(longitude));
-                    Log.e("latitude is:", String.valueOf(latitude));
-                }
-            };
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,10,locationListener);
-        }*/
+
 
 
 
@@ -142,53 +161,13 @@ public class NotificationsFragment extends Fragment {
         startActivity(intent);
     }
 
-    public boolean checkLocationPermission(ActivityResultLauncher<String> location_permission_res){
-        if(ContextCompat.checkSelfPermission(getActivity(),
-                Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
-            if(ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),Manifest.permission.ACCESS_FINE_LOCATION)){
-                new AlertDialog.Builder(getActivity())
-                        .setTitle("Allow app to access location?")
-                        .setMessage("This app requires user permission to display location")
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                               location_permission_res.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-                            }
-                        })
-                        .create()
-                        .show();
 
-            }else{
-               location_permission_res.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-               Log.e("location request","sent");
-            }
-            return false;
-        }else{
-            Log.e("user_granted","location");
-            return true;
-        }
+    public void uploadToFirebase(){
+        LocationInfo locationInfo = new LocationInfo(curr_user_email,String.valueOf(longitude),String.valueOf(latitude));
+        String uploadId = loc_db.push().getKey();
+        loc_db.child(uploadId).setValue(locationInfo);
     }
-    /*
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
-            case MY_PERMISSION_REQUEST_LOCATION:{
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    Log.e("location_permission","granted");
-                    Toast.makeText(getActivity().getApplicationContext(),"You are now sharing location",Toast.LENGTH_SHORT).show();
-                    if(ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.ACCESS_FINE_LOCATION)==PackageManager.PERMISSION_GRANTED){
-                        locationManager.requestLocationUpdates(provider,400,1, (LocationListener) this);
-                    }
-                }else{
-
-                }
-            }
-        }
-        return;
-
-    }*/
 
 
 
