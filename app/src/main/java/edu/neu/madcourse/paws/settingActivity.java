@@ -18,8 +18,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -27,6 +34,14 @@ import com.google.firebase.storage.UploadTask;
 public class settingActivity<onActivityResult> extends AppCompatActivity {
     private ImageView profile_image;
     StorageReference storageReference;
+    DatabaseReference user_db;
+    private EditText nick_name;
+    private EditText city;
+    String nickName;
+    String cityName;
+    private String curr_user_email;
+    FirebaseUser firebaseUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +49,11 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
         Button next_button = (Button) findViewById(R.id.button_next);
         EditText username_input = (EditText) findViewById(R.id.username_edit);
+        EditText city_input = (EditText) findViewById(R.id.CityName_edit);
         ImageButton camera_button = (ImageButton) findViewById(R.id.imageButton);
         profile_image = (ImageView) findViewById(R.id.profile_setting_image);
         storageReference = FirebaseStorage.getInstance().getReference();
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         camera_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,10 +63,26 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String userName = username_input.getText().toString();
+                nickName = username_input.getText().toString().trim();
+                cityName = city_input.getText().toString().trim();
                 openPetSetting();
             }
         });
+        firebaseUser.getIdToken(true)
+                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                        if(task.isSuccessful()){
+                            curr_user_email = firebaseUser.getEmail();
+                            Log.e("curr_user",curr_user_email);
+                        }else{
+                            Log.e("get user","failed");
+                        }
+                    }
+                });
+
+        user_db = FirebaseDatabase.getInstance().getReference("user_info");
+
 
 
     }
@@ -90,6 +123,18 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
         fileReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+
+                       // nickName = nick_name.getText().toString().trim();
+                     //   cityName = city.getText().toString().trim();
+                        String upload_id = user_db.push().getKey();
+
+                        User user = new User(curr_user_email,nickName,uri.toString(),cityName);
+                        user_db.child(upload_id).setValue(user);
+                    }
+                });
                 Toast.makeText(getApplicationContext(),"image uploaded",Toast.LENGTH_SHORT).show();
             }
         }).addOnFailureListener(new OnFailureListener() {
