@@ -11,6 +11,7 @@
         android:label="Posts"
         tools:layout="@layout/fragment_home" />
 
+
     <fragment
         android:id="@+id/navigation_message"
         android:name="edu.neu.madcourse.paws.ui.messaging.DashboardFragment"
