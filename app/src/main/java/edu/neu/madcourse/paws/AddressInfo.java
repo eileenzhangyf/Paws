@@ -18,7 +18,7 @@ public class AddressInfo {
     }
 
     public String getCity() {
-        return city;
+        return this.city;
     }
 
     public String getCountry() {
@@ -26,7 +26,7 @@ public class AddressInfo {
     }
 
     public String getUser_email() {
-        return user_email;
+        return this.user_email;
     }
 
     public String getState() {

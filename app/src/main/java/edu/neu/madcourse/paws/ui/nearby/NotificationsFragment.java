@@ -135,18 +135,6 @@ public class NotificationsFragment extends Fragment {
                                         }
                                     }
                                 });
-                        /*
-
-                        longitude = location.getLongitude();
-                        latitude = location.getLatitude();
-                        Log.e("longitude_2 is:",String.valueOf(longitude));
-                        Log.e("latitude_2 is:", String.valueOf(latitude));
-                        Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
-                        try {
-                            List<Address> addresses = geocoder.getFromLocation(longitude,latitude,1);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }*/
 
 
                     }
@@ -159,7 +147,7 @@ public class NotificationsFragment extends Fragment {
         });
         location_permission_res.launch(Manifest.permission.ACCESS_FINE_LOCATION);
 
-        //checkLocationPermission();
+
         FloatingActionButton add_button = view.findViewById(R.id.floatingActionButton2);
         add_button.setOnClickListener(new View.OnClickListener() {
             @Override

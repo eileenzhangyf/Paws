@@ -58,7 +58,6 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         View view = inflater.inflate(R.layout.fragment_home,container,false);
 
 
