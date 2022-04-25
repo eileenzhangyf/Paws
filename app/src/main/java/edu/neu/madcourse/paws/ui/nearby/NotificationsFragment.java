@@ -138,6 +138,20 @@ public class NotificationsFragment extends Fragment {
 
 
                     }
+                    @Override
+                    public void onProviderEnabled(@NonNull String provider) {
+
+                    }
+
+                    @Override
+                    public void onProviderDisabled(@NonNull String provider) {
+
+                    }
+
+                    @Override
+                    public void onStatusChanged(String provider, int status, Bundle extras) {
+
+                    }
                 };
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,2000,10,locationListener);
 

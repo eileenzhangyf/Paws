@@ -35,12 +35,11 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
     private ImageView profile_image;
     StorageReference storageReference;
     DatabaseReference user_db;
-    private EditText nick_name;
-    private EditText city;
-    String nickName;
-    String cityName;
+
     private String curr_user_email;
     FirebaseUser firebaseUser;
+    EditText username_input;
+    EditText city_input;
 
 
     @Override
@@ -48,8 +47,8 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         Button next_button = (Button) findViewById(R.id.button_next);
-        EditText username_input = (EditText) findViewById(R.id.username_edit);
-        EditText city_input = (EditText) findViewById(R.id.CityName_edit);
+        username_input = (EditText) findViewById(R.id.username_edit);
+        city_input = (EditText) findViewById(R.id.CityName_edit);
         ImageButton camera_button = (ImageButton) findViewById(R.id.imageButton);
         profile_image = (ImageView) findViewById(R.id.profile_setting_image);
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -63,8 +62,7 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
         next_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nickName = username_input.getText().toString().trim();
-                cityName = city_input.getText().toString().trim();
+
                 openPetSetting();
             }
         });
@@ -126,9 +124,9 @@ public class settingActivity<onActivityResult> extends AppCompatActivity {
                 fileReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
+                        String nickName = username_input.getText().toString();
+                        String cityName = city_input.getText().toString();
 
-                       // nickName = nick_name.getText().toString().trim();
-                     //   cityName = city.getText().toString().trim();
                         String upload_id = user_db.push().getKey();
 
                         User user = new User(curr_user_email,nickName,uri.toString(),cityName);

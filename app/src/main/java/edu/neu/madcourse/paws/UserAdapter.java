@@ -17,7 +17,7 @@ import java.util.List;
 
 public class UserAdapter extends ArrayAdapter<UserUnitActivity> {
     public UserAdapter(@NonNull Context context, int resource, List<UserUnitActivity> user_list) {
-        super(context, resource);
+        super(context, resource,user_list);
     }
 
     @NonNull

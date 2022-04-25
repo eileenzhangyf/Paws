@@ -34,6 +34,7 @@ public class SameCityActivity extends AppCompatActivity {
     List<AddressInfo> list;
     Set<String> same_city_users;
     List<User> userList;
+    Set<String> added_users;
 
 
     @Override
@@ -43,6 +44,7 @@ public class SameCityActivity extends AppCompatActivity {
         list = new ArrayList<>();
         same_city_users = new HashSet<>();
         userList = new ArrayList<>();
+        added_users = new HashSet<>();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseUser.getIdToken(true)
                 .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
@@ -59,9 +61,10 @@ public class SameCityActivity extends AppCompatActivity {
         listView = findViewById(R.id.city_listview);
 
         user_list = new ArrayList<>();
-        userAdapter = new UserAdapter(this,0,user_list);
+        userAdapter = new UserAdapter(this,R.layout.activity_user_unit,user_list);
         listView.setAdapter(userAdapter);
         getCurrCity();
+
 
 
 
@@ -103,14 +106,19 @@ public class SameCityActivity extends AppCompatActivity {
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                                             for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
                                                 User user = dataSnapshot1.getValue(User.class);
-                                                Log.e("city_test5",String.valueOf(user.getUser_name()));
+                                                //Log.e("city_test5",String.valueOf(user.getUser_name()));
                                                 if (same_city_users.contains(user.getUser_name())) {
                                                     userList.add(user);
                                                     Log.e("city_test3", String.valueOf(userList));
                                                 }
 
                                                 for (User user1 : userList) {
-                                                    addUser(user1.getNick_name(), user1.getProfile_url(), user1.getCity());
+                                                    if(!added_users.contains(user1.getUser_name())) {
+                                                        Log.e("city_test6", String.valueOf(user1.getUser_name()));
+                                                        addUser(user1.getNick_name(), user1.getProfile_url(), user1.getCity());
+                                                        Log.e("user added", "success");
+                                                    }
+                                                    added_users.add(user1.getUser_name());
 
                                                 }
 
@@ -146,6 +154,7 @@ public class SameCityActivity extends AppCompatActivity {
     public void addUser(String nick_name, String user_image, String city){
         UserUnitActivity userUnitActivity = new UserUnitActivity(nick_name,user_image,city);
         user_list.add(userUnitActivity);
+        Log.e("city_test7",String.valueOf(user_list));
         userAdapter.notifyDataSetChanged();
 
     }
