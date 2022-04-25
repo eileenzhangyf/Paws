@@ -39,7 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double lat, lng;
 
     //import image button for show up data
-    ImageButton dogpark, hospital, market;
+    ImageButton dogpark, hospital, market, userlocation;
 
 
     @Override
@@ -53,6 +53,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dogpark = findViewById(R.id.dogpark);
         hospital = findViewById(R.id.hospital);
         market = findViewById(R.id.market);
+        userlocation = findViewById(R.id.userlocation);
 
 
         fusedLocationProviderClient =
@@ -122,6 +123,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 dataFetch[1] = url;
 
                 FetchData fetchData = new FetchData();
+                fetchData.execute(dataFetch);
+            }
+        });
+
+        userlocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StringBuilder stringBuilder = new StringBuilder
+                        ("https://paws-846aa-default-rtdb.firebaseio.com/usal.json");
+
+
+                String url = stringBuilder.toString();
+                Object dataFetch[] = new Object[2];
+                dataFetch[0] = mMap;
+                dataFetch[1] = url;
+
+                FetchFirebaseData fetchData = new FetchFirebaseData();
                 fetchData.execute(dataFetch);
             }
         });
