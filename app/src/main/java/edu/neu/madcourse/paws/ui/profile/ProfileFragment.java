@@ -55,66 +55,66 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        init(view);
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
-
-    public void init(View view) {
-        userNameText = (TextView) view.findViewById(R.id.user_name);
-        locationText = (TextView) view.findViewById(R.id.user_location);
-        breedText = (TextView) view.findViewById(R.id.breedTV);
-        genderText = (TextView) view.findViewById(R.id.petGenderTV);
-        ageText = (TextView) view.findViewById(R.id.petAgeTV);
-        profileImage = (CircleImageView) view.findViewById(R.id.profile_image);
-
-        user_db = FirebaseDatabase.getInstance().getReference("user_info");
-        pet_db = FirebaseDatabase.getInstance().getReference("pet_info");
-
-
-        pet_db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
-
-                    breed = datasnapshot.child("breed").getValue(String.class);
-                    age = datasnapshot.child("age").getValue(String.class);
-                    gender = datasnapshot.child("gender").getValue(String.class);
-                    breedText.setText(breed);
-                    ageText.setText(age);
-                    genderText.setText(gender);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        user_db.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                nickname = snapshot.child("nick_name").getValue(String.class);
-                userNameText.setText(nickname);
-                profileImage = snapshot.child("profile_url").getValue(CircleImageView.class);
-                city = snapshot.child("city").getValue(String.class);
-                locationText.setText(city);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-        }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//        init(view);
+//    }
+//
+//    @Override
+//    public void onDestroyView() {
+//        super.onDestroyView();
+//        binding = null;
+//    }
+//
+//    public void init(View view) {
+//        userNameText = (TextView) view.findViewById(R.id.user_name);
+//        locationText = (TextView) view.findViewById(R.id.user_location);
+//        breedText = (TextView) view.findViewById(R.id.breedTV);
+//        genderText = (TextView) view.findViewById(R.id.petGenderTV);
+//        ageText = (TextView) view.findViewById(R.id.petAgeTV);
+//        profileImage = (CircleImageView) view.findViewById(R.id.profile_image);
+//
+//        user_db = FirebaseDatabase.getInstance().getReference("user_info");
+//        pet_db = FirebaseDatabase.getInstance().getReference("pet_info");
+//
+//
+//        pet_db.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+//
+//                    breed = datasnapshot.child("breed").getValue(String.class);
+//                    age = datasnapshot.child("age").getValue(String.class);
+//                    gender = datasnapshot.child("gender").getValue(String.class);
+//                    breedText.setText(breed);
+//                    ageText.setText(age);
+//                    genderText.setText(gender);
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//        user_db.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                nickname = snapshot.child("nick_name").getValue(String.class);
+//                userNameText.setText(nickname);
+//                profileImage = snapshot.child("profile_url").getValue(CircleImageView.class);
+//                city = snapshot.child("city").getValue(String.class);
+//                locationText.setText(city);
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+//
+//        }
 
 
 
