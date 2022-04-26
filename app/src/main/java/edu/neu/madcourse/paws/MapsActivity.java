@@ -162,8 +162,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             @Override
             public void onLocationResult(LocationResult locationResult) {
-                Toast.makeText(getApplicationContext(), "location result is = " + locationResult, Toast.LENGTH_LONG).show();
-
                 if(locationResult == null) {
                     Toast.makeText(getApplicationContext(), "Current location is null", Toast.LENGTH_LONG).show();
                     return;
