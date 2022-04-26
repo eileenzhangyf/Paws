@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -162,13 +163,6 @@ public class NotificationsFragment extends Fragment {
         location_permission_res.launch(Manifest.permission.ACCESS_FINE_LOCATION);
 
 
-        FloatingActionButton add_button = view.findViewById(R.id.floatingActionButton2);
-        add_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMaps();
-            }
-        });
 
         Button city_button = (Button) view.findViewById(R.id.same_city_button);
         city_button.setOnClickListener(new View.OnClickListener() {
@@ -178,11 +172,11 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
-        Button state_button = (Button) view.findViewById(R.id.same_state_button);
-        state_button.setOnClickListener(new View.OnClickListener() {
+        ImageButton map_button = (ImageButton) view.findViewById(R.id.map_mode);
+        map_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openSameState();
+                openMaps();
             }
         });
 

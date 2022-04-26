@@ -6,22 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.nearby.NotificationsFragment">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="76dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="228dp"
         android:layout_height="49dp"
-        android:layout_marginTop="192dp"
+        android:layout_marginTop="204dp"
         android:text="Check out Paws in your area"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -40,31 +29,43 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
-        android:id="@+id/same_state_button"
-        android:layout_width="157dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="39dp"
-        android:text="Same State"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/same_city_button" />
-
-    <Button
         android:id="@+id/same_country"
         android:layout_width="176dp"
         android:layout_height="56dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="38dp"
         android:text="Same Country"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/same_state_button" />
+        app:layout_constraintTop_toBottomOf="@+id/same_city_button" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="408dp"
-        android:layout_height="160dp"
+        android:layout_width="404dp"
+        android:layout_height="171dp"
         android:src="@drawable/logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/map_mode"
+        android:layout_width="90dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="96dp"
+        android:src="@android:drawable/ic_menu_mapmode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/same_country" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="125dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="96dp"
+        android:text="Map Mode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/same_country" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
