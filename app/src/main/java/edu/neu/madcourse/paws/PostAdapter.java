@@ -16,6 +16,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -23,9 +32,12 @@ import java.net.URL;
 import java.util.List;
 
 public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
+    FirebaseUser firebaseUser;
+    String curr_user_email;
 
     public PostAdapter(@NonNull Context context, int resource, List<PostUnitActivity> post_list) {
         super(context, resource,post_list);
+
     }
 
     @NonNull
@@ -43,15 +55,57 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
         Log.e("url is",post_url);
         Picasso.get().load(post_url).into(default_post_image);
 
+        String person_url = postUnit.get_user_image();
+       // Picasso.get().load(person_url).into(default_profile_image);
+
 
 
         TextView userName_tv = (TextView) listView.findViewById(R.id.username_tv);
         String userName = postUnit.getUser_name();
-        userName_tv.setText(userName);
+       // userName_tv.setText(userName);
 
         TextView post_tv = (TextView) listView.findViewById(R.id.post_tv);
         String post_content = postUnit.getPost_content();
         post_tv.setText(post_content);
+
+        TextView time_tv = listView.findViewById(R.id.time_tv);
+        String post_data = postUnit.getDate();
+        time_tv.setText(post_data);
+
+        FirebaseDatabase.getInstance().getReference().child("user_info")
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        User user = snapshot.getValue(User.class);
+                        if(user.getUser_name().equals(userName)){
+                            String profile_url = user.getProfile_url();
+                            String nickName = user.getNick_name();
+                            userName_tv.setText(nickName);
+                            Log.e("post_test5",profile_url);
+                            Picasso.get().load(profile_url).into(default_profile_image);
+                        }
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                    }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
 
 

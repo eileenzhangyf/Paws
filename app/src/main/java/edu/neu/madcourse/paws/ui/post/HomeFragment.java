@@ -31,14 +31,18 @@ import com.squareup.picasso.Picasso;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import edu.neu.madcourse.paws.ComposeActivity;
 import edu.neu.madcourse.paws.ImageUploadInfo;
 import edu.neu.madcourse.paws.PostAdapter;
 import edu.neu.madcourse.paws.PostUnitActivity;
 import edu.neu.madcourse.paws.R;
+import edu.neu.madcourse.paws.User;
 import edu.neu.madcourse.paws.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -49,6 +53,8 @@ public class HomeFragment extends Fragment {
     private List<PostUnitActivity> post_list;
     private PostAdapter postAdapter;
     DatabaseReference post_db;
+    String url;
+    String nickname;
 
 
 
@@ -86,7 +92,11 @@ public class HomeFragment extends Fragment {
                 String post_content = imageUploadInfo.getImageName();
                 String post_url = imageUploadInfo.getImageURL();
 
-                addPost(user,post_url,post_content,post_url);
+                SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.getDefault());
+                String currentDateandTime = sdf.format(new Date());
+
+
+                addPost(user,post_url,post_content,post_url, currentDateandTime);
                 Log.e("post added","success");
             }
 
@@ -97,7 +107,11 @@ public class HomeFragment extends Fragment {
                 Log.e("Person name",user);
                 String post_content = imageUploadInfo.getImageName();
                 String post_url = imageUploadInfo.getImageURL();
-                addPost(user,post_url,post_content,post_url);
+                SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.getDefault());
+                String currentDateandTime = sdf.format(new Date());
+
+
+                addPost(user,post_url,post_content,post_url, currentDateandTime);
                 Log.e("post added","success");
             }
 
@@ -118,14 +132,6 @@ public class HomeFragment extends Fragment {
         });
 
 
-        /*
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
         return view;
     }
 
@@ -140,10 +146,13 @@ public class HomeFragment extends Fragment {
         startActivity(intent);
     }
 
-    public void addPost(String user_name, String user_image, String post, String post_img){
-        PostUnitActivity postUnit = new PostUnitActivity(user_name,post_img,post,user_image);
+    public void addPost(String user_name, String user_image, String post, String post_img, String date){
+       // setProfileUrlandNickNname(user_name);
+        PostUnitActivity postUnit = new PostUnitActivity(user_name,post_img,post,user_image, date);
         post_list.add(postUnit);
         postAdapter.notifyDataSetChanged();
 
     }
+
+
 }
