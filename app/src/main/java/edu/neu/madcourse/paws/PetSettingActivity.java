@@ -66,7 +66,7 @@ public class PetSettingActivity extends AppCompatActivity {
     }
 
     public void openNav(){
-        Intent intent = new Intent(this,PetSettingActivity2.class);
+        Intent intent = new Intent(this,NavActivity.class);
         startActivity(intent);
     }
 

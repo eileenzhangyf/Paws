@@ -1,10 +1,12 @@
 package edu.neu.madcourse.paws.ui.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 import de.hdodenhof.circleimageview.CircleImageView;
 import edu.neu.madcourse.paws.DownloadUrl;
 import edu.neu.madcourse.paws.ImageUploadInfo;
+import edu.neu.madcourse.paws.LoginActivity;
 import edu.neu.madcourse.paws.Pet;
 import edu.neu.madcourse.paws.R;
 import edu.neu.madcourse.paws.User;
@@ -93,6 +96,14 @@ public class ProfileFragment extends Fragment {
                         }
                     }
                 });
+        Button sign_out = view.findViewById(R.id.sign_out_button);
+        sign_out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                openLogin();
+            }
+        });
 
 
 
@@ -238,5 +249,10 @@ public class ProfileFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    public void openLogin(){
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+        startActivity(intent);
     }
 }
