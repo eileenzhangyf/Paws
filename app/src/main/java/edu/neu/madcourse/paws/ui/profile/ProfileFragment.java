@@ -70,6 +70,7 @@ public class ProfileFragment extends Fragment {
         return root;
     }
 
+    //Get data from pet_info database api
     private String getDataFromURL(String url) {
         DownloadUrl downloadUrl = new DownloadUrl();
         String allData = "";
@@ -81,6 +82,7 @@ public class ProfileFragment extends Fragment {
         return allData;
     }
 
+    //
     private void cleanDataFromURL(String s) {
         HashMap<String,Pet> pets = new HashMap<>();
         try {
