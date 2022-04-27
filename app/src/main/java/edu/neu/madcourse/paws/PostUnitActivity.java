@@ -12,6 +12,7 @@ public class PostUnitActivity extends AppCompatActivity {
     String post_image_uri;
     String post_content;
     String user_image_uri;
+    String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +24,12 @@ public class PostUnitActivity extends AppCompatActivity {
 
     }
 
-    public PostUnitActivity(String user_name, String post_uri, String post_content, String user_image_uri){
+    public PostUnitActivity(String user_name, String post_uri, String post_content, String user_image_uri, String date){
         this.user_image_uri = user_image_uri;
         this.user_name = user_name;
         this.post_image_uri = post_uri;
         this.post_content = post_content;
+        this.date = date;
 
     }
 
@@ -45,5 +47,9 @@ public class PostUnitActivity extends AppCompatActivity {
 
     public String get_user_image(){
         return user_image_uri;
+    }
+
+    public String getDate() {
+        return date;
     }
 }

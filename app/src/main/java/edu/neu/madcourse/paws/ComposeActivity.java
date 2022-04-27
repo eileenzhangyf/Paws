@@ -144,7 +144,7 @@ public class ComposeActivity extends AppCompatActivity {
 
                                     progressDialog.dismiss();
 
-                                    Toast.makeText(getApplicationContext(), "Image Uploaded Successfully ", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(), "Post Uploaded Successfully ", Toast.LENGTH_LONG).show();
 
                                     // ImageUploadInfo imageUploadInfo= new ImageUploadInfo(curr_user_email,TempImageName, taskSnapshot.getStorage().getDownloadUrl().toString());
 
