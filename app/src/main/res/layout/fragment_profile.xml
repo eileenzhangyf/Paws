@@ -163,7 +163,7 @@
             android:textStyle="normal|bold" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/my_pet_gender_tv"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="Male"

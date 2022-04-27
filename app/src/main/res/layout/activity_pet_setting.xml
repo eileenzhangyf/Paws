@@ -40,7 +40,7 @@
         app:srcCompat="@drawable/paws_logo2" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/my_pet_gender_tv"
         android:layout_width="220dp"
         android:layout_height="46dp"
         android:layout_marginStart="32dp"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/my_pet_gender_tv" />
 
     <TextView
         android:id="@+id/textView13"
