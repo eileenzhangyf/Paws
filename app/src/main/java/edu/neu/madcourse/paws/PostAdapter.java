@@ -79,7 +79,7 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
                             Log.e("post_test6",user.getUser_name());
                             String profile_url = user.getProfile_url();
                             String nickName = user.getNick_name();
-                            userName_tv.setText(nickName);
+                            userName_tv.setText("      "+nickName);
                             Log.e("post_test5",profile_url);
                             Picasso.get().load(profile_url).into(default_profile_image);
                         }
