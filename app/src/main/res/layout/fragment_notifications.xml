@@ -17,28 +17,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/same_city_button"
-        android:layout_width="145dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="41dp"
-        android:text="Same City"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <Button
-        android:id="@+id/same_country"
-        android:layout_width="176dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="38dp"
-        android:text="Same Country"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/same_city_button" />
-
     <ImageView
         android:id="@+id/imageView10"
         android:layout_width="404dp"
@@ -51,21 +29,21 @@
         android:id="@+id/map_mode"
         android:layout_width="90dp"
         android:layout_height="58dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="46dp"
         android:src="@android:drawable/ic_menu_mapmode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/same_country" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="125dp"
         android:layout_height="47dp"
         android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="57dp"
         android:text="Map Mode"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/same_country" />
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

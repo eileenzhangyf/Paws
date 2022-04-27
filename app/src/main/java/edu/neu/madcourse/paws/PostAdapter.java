@@ -32,8 +32,6 @@ import java.net.URL;
 import java.util.List;
 
 public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
-    FirebaseUser firebaseUser;
-    String curr_user_email;
 
     public PostAdapter(@NonNull Context context, int resource, List<PostUnitActivity> post_list) {
         super(context, resource,post_list);
@@ -78,9 +76,10 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                         User user = snapshot.getValue(User.class);
                         if(user.getUser_name().equals(userName)){
+                            Log.e("post_test6",user.getUser_name());
                             String profile_url = user.getProfile_url();
                             String nickName = user.getNick_name();
-                            userName_tv.setText(nickName);
+                            userName_tv.setText("      "+nickName);
                             Log.e("post_test5",profile_url);
                             Picasso.get().load(profile_url).into(default_profile_image);
                         }

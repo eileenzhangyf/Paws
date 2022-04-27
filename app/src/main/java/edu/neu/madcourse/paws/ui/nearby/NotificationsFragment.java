@@ -124,13 +124,14 @@ public class NotificationsFragment extends Fragment {
                                             Log.e("latitude is:", String.valueOf(latitude));
 
                                             uploadToFirebase();
+                                            /*
                                             Geocoder geocoder = new Geocoder(getActivity(), Locale.getDefault());
                                             try {
                                                 List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
                                                 uploadToAddressDb(addresses, curr_user_email);
                                             } catch (IOException e) {
                                                 e.printStackTrace();
-                                            }
+                                            }*/
                                         }else{
                                             Log.e("get user","failed");
                                         }
@@ -163,14 +164,14 @@ public class NotificationsFragment extends Fragment {
         location_permission_res.launch(Manifest.permission.ACCESS_FINE_LOCATION);
 
 
-
+/*
         Button city_button = (Button) view.findViewById(R.id.same_city_button);
         city_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openSameCity();
             }
-        });
+        });*/
 
         ImageButton map_button = (ImageButton) view.findViewById(R.id.map_mode);
         map_button.setOnClickListener(new View.OnClickListener() {
@@ -180,13 +181,14 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+        /*
         Button country_button = (Button) view.findViewById(R.id.same_country);
         country_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openCountry();
             }
-        });
+        });*/
 
 
 
