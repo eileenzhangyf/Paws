@@ -38,7 +38,7 @@
             android:name=".LocationPermissionActivity"
             android:exported="false" />
         <activity
-            android:name=".MapsActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".PetSettingActivity2"
@@ -80,7 +80,7 @@
             android:exported="false"
             android:theme="@style/AppThemeFull" />
         <activity
-            android:name=".MainActivity"
+            android:name=".MapsActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
             <intent-filter>

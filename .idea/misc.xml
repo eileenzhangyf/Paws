@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android/Paws/app/src/main/res/drawable/ic_baseline_face_24.xml" value="0.2246153846153846" />
+        <entry key="..\:/android/Paws/app/src/main/res/drawable/ic_baseline_local_hospital_24.xml" value="0.2246153846153846" />
+        <entry key="..\:/android/Paws/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2246153846153846" />
+        <entry key="..\:/android/Paws/app/src/main/res/drawable/ic_baseline_person_outline_24.xml" value="0.2246153846153846" />
+        <entry key="..\:/android/Paws/app/src/main/res/drawable/ic_baseline_restaurant_24.xml" value="0.2246153846153846" />
+        <entry key="..\:/android/Paws/app/src/main/res/drawable/ic_baseline_supervised_user_circle_24.xml" value="0.2246153846153846" />
+        <entry key="..\:/android/Paws/app/src/main/res/layout/activity_main.xml" value="0.21197916666666666" />
+        <entry key="..\:/android/Paws/app/src/main/res/layout/activity_nav.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_a_photo_24.xml" value="0.22037037037037038" />
         <entry key="app/src/main/res/drawable/ic_baseline_insert_photo_24.xml" value="0.22552083333333334" />
         <entry key="app/src/main/res/drawable/ic_baseline_photo_24.xml" value="0.22552083333333334" />
