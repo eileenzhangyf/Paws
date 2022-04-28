@@ -69,13 +69,6 @@
                 android:text="Remember Me"
                 android:textAlignment="textStart" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:text="Forgot password?"
-                android:textAlignment="center"
-                android:textSize="16dp" />
         </LinearLayout>
 
     <Button

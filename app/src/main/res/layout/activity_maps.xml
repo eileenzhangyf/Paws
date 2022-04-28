@@ -6,6 +6,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".MapsActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,18 +19,21 @@
             android:layout_height="wrap_content"
             android:id="@+id/dogpark"
             android:padding="30dp"
+            android:layout_weight="1"
             android:src="@drawable/ic_baseline_face_24"/>
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/hospital"
             android:padding="30dp"
+            android:layout_weight="1"
             android:src="@drawable/ic_baseline_local_hospital_24"/>
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/market"
             android:padding="30dp"
+            android:layout_weight="1"
             android:src="@drawable/ic_baseline_restaurant_24"/>
 
         <ImageButton
@@ -37,6 +41,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/userlocation"
             android:padding="30dp"
+            android:layout_weight="1"
             android:src="@drawable/ic_baseline_supervised_user_circle_24"/>
     </LinearLayout>
 
