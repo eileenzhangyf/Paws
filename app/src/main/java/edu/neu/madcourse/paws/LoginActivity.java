@@ -5,12 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -70,6 +74,15 @@ public class LoginActivity extends AppCompatActivity {
                 if(isRemember)
                     upload_setting_details_to_firebase();
                 signIn(email,password);
+            }
+        });
+
+        Button reset = (Button) findViewById(R.id.resetbutton);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, ActivityResetPassword.class);
+                startActivity(intent);
             }
         });
     }
