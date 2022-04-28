@@ -7,12 +7,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import edu.neu.madcourse.framework.manager.MediaPlayerManager;
 import edu.neu.madcourse.paws.GuideActivity;
 import edu.neu.madcourse.paws.R;
 
 public class InitActivity extends AppCompatActivity {
+
+    Animation rotateAnimation;
+    ImageView rotateLogo;
     /**
      * 1. set full screen
      * 2. delay entering main page
@@ -39,7 +45,14 @@ public class InitActivity extends AppCompatActivity {
         AssetFileDescriptor fileDescriptor = getResources().openRawResourceFd(R.raw.sample_6s);
         mediaPlayerManager.startPlay(fileDescriptor);
         */
+        rotateLogo = (ImageView) findViewById(R.id.rotate_logo);
+        rotateAnimation();
        myHandler.sendEmptyMessageDelayed(SKIP_MAIN,5*1000);
+    }
+
+    private void rotateAnimation() {
+        rotateAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate);
+        rotateLogo.startAnimation(rotateAnimation);
     }
 
     public void startMain(){

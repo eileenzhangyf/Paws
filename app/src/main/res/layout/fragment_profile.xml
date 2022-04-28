@@ -81,8 +81,8 @@
 
     <LinearLayout
         android:id="@+id/pet_info"
-        android:layout_width="128dp"
-        android:layout_height="158dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/myPet"
         android:layout_alignParentStart="true"
         android:layout_marginStart="40dp"
@@ -136,11 +136,11 @@
 
     <LinearLayout
         android:id="@+id/petDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="160dp"
         android:layout_below="@+id/myPet"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="200dp"
+        android:layout_marginStart="158dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:orientation="vertical"

@@ -7,10 +7,10 @@
     tools:context=".InitActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="263dp"
-        android:layout_height="290dp"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/rotate_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_marginStart="74dp"
         android:layout_marginTop="71dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,14 +19,16 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="223dp"
-        android:layout_height="108dp"
+        android:layout_width="293dp"
+        android:layout_height="99dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="439dp"
-        android:text="Let's connect"
+        android:layout_marginTop="563dp"
+        android:text="Let's Connect"
+        android:textAlignment="center"
+        android:textAllCaps="true"
         android:textSize="32dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/rotate_logo" />
 </RelativeLayout>
