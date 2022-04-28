@@ -5,17 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.post.HomeFragment"
-    android:layout_marginTop="-0dp"
+    android:layout_marginTop="0dp"
     android:paddingTop="0dp"
     >
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="84dp"
+        android:layout_marginTop="285dp"
+        android:layout_marginLeft="288dp"
         android:layout_marginBottom="87dp"
         android:clickable="true"
         android:src="@android:drawable/ic_input_add"
@@ -30,9 +30,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginTop="-5dp"
-        android:layout_marginEnd="3dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </RelativeLayout>
