@@ -13,7 +13,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:src="@drawable/profile_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +35,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Tom"
             android:textAlignment="center"
             android:textSize="28sp"
             android:textStyle="bold"
@@ -48,7 +46,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="San Jose, California"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -150,7 +147,6 @@
             android:id="@+id/myPetTypeTV"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Cat"
             android:textSize="18sp"
             android:textStyle="normal|bold" />
 
@@ -158,7 +154,6 @@
             android:id="@+id/myPetBreedTV"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="British Shorthair"
             android:textSize="18sp"
             android:textStyle="normal|bold" />
 
@@ -166,7 +161,6 @@
             android:id="@+id/my_pet_gender_tv"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:text="Male"
             android:textSize="18sp"
             android:textStyle="normal|bold" />
 
@@ -174,7 +168,6 @@
             android:id="@+id/myPetAge"
             android:layout_width="234dp"
             android:layout_height="38dp"
-            android:text="1 Year Old"
             android:textSize="18sp"
             android:textStyle="normal|bold" />
     </LinearLayout>
