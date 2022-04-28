@@ -9,6 +9,7 @@
         android:id="@+id/navigation_post"
         android:name="edu.neu.madcourse.paws.ui.post.HomeFragment"
         android:label="Posts"
+        android:paddingTop="0dp"
         tools:layout="@layout/fragment_home" />
 
     <!--
