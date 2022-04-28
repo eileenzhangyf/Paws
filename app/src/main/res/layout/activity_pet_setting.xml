@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,143 +8,160 @@
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="419dp"
-        android:layout_height="161dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="410dp"
+        android:layout_height="149dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:text="Pet Type"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="73dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="33dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:srcCompat="@drawable/paws_logo2" />
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ImageContrastCheck" />
 
     <TextView
         android:id="@+id/my_pet_gender_tv"
-        android:layout_width="220dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:text="Setting up your profile"
-        android:textSize="20dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-
-    <EditText
-        android:id="@+id/editTextPetType"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="46dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textView10"
-        app:layout_constraintTop_toBottomOf="@+id/my_pet_gender_tv" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        android:text="Breed"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        android:layout_below="@+id/imageView8"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="40dp"
+        android:text="Start setting up your pet's profile here"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        tools:layout_editor_absoluteX="145dp" />
 
-    <EditText
-        android:id="@+id/editTextBreed"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="46dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPetType" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="100dp"
+    <LinearLayout
+        android:id="@+id/petInfo"
+        android:layout_width="111dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_below="@+id/my_pet_gender_tv"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
-        android:text="Age"
-        android:textSize="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextAge"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="46dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBreed" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Pet Type"
+            android:textAlignment="textEnd"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="289dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Breed"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:text="Gender"
+            android:textAlignment="viewEnd"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView10" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age"
+            android:textAlignment="textEnd"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/petInfoInput"
+        android:layout_width="191dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_pet_gender_tv"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="20dp"
+        android:layout_toEndOf="@+id/petInfo"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editTextPetType"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/inputbox"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textAlignment="textStart"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/editTextBreed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/inputbox"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/editTextPetType" />
+
+        <EditText
+            android:id="@+id/editTextGender"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/inputbox"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/editTextBreed" />
+
+        <EditText
+            android:id="@+id/editTextAge"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/inputbox"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/editTextGender" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="145dp"
-        android:layout_marginTop="107dp"
-        android:layout_marginEnd="178dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
         android:text="Next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextGender" />
+ />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        android:text="Gender"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
-    <EditText
-        android:id="@+id/editTextGender"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="35dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toEndOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAge" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

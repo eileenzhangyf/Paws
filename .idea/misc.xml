@@ -23,12 +23,13 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_maps.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_nav.xml" value="0.1322463768115942" />
-        <entry key="app/src/main/res/layout/activity_pet_setting.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_pet_setting.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_pet_setting2.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_post_unit.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_same_city.xml" value="0.23710794505262356" />
         <entry key="app/src/main/res/layout/activity_setting.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_state.xml" value="0.3328804347826087" />
         <entry key="app/src/main/res/layout/activity_user_unit.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.1322463768115942" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.1322463768115942" />
