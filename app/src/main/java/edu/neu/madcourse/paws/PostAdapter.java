@@ -64,11 +64,11 @@ public class PostAdapter extends ArrayAdapter<PostUnitActivity> {
 
         TextView post_tv = (TextView) listView.findViewById(R.id.post_tv);
         String post_content = postUnit.getPost_content();
-        post_tv.setText(post_content);
+        post_tv.setText("\n"+post_content);
 
-        TextView time_tv = listView.findViewById(R.id.time_tv);
+       // TextView time_tv = listView.findViewById(R.id.time_tv);
         String post_data = postUnit.getDate();
-        time_tv.setText(post_data);
+       // time_tv.setText(post_data);
 
         FirebaseDatabase.getInstance().getReference().child("user_info")
                 .addChildEventListener(new ChildEventListener() {
