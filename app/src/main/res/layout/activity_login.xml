@@ -73,7 +73,7 @@
             android:id="@+id/resetbutton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/system_accent1_0"
+            android:background="?android:attr/selectableItemBackground"
             android:text="Forgot password?"
             android:textAlignment="center"
             android:textSize="12dp" />
